@@ -2,6 +2,13 @@
 
 Small helpers that fit nowhere else.
 
+## Helpers
+
+| Export | What it does |
+| --- | --- |
+| [`safe` / `safeAsync`](#safe--safeasync) | runs a callback and returns `{ data, error }` instead of throwing |
+| [`pluralize`](#pluralize) | picks the singular or plural form of a word for a count |
+
 Each helper is its own export, so importing one does not pull in the rest.
 
 ## Install
@@ -12,7 +19,6 @@ deno add jsr:@whaaaley/common
 
 ## safe / safeAsync
 
-Runs a callback and returns `{ data, error }` instead of throwing.
 `safe` takes a synchronous callback and `safeAsync` takes one returning a promise.
 
 ```ts
@@ -27,11 +33,10 @@ if (error) {
 const { data: response, error: fetchError } = await safeAsync(() => fetch(url))
 ```
 
-`error` is always an `Error`. A thrown value that is not an `Error` is wrapped in one.
+`error` is always an `Error`.
+A thrown value that is not an `Error` is wrapped in one.
 
 ## pluralize
-
-Picks the singular or plural form of a word for a count.
 
 ```ts
 import { pluralize } from '@whaaaley/common/pluralize'

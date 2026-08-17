@@ -1,6 +1,6 @@
 # common
 
-A place for small helpers that fit nowhere else and keep getting rewritten from project to project.
+Small helpers that fit nowhere else.
 
 Each helper is its own export, so importing one does not pull in the rest.
 

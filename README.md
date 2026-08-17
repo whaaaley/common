@@ -10,9 +10,10 @@ Each helper is its own export, so importing one does not pull in the rest.
 deno add jsr:@whaaaley/grab-bag
 ```
 
-## safe
+## safe / safeAsync
 
 Runs a callback and returns `{ data, error }` instead of throwing.
+`safe` takes a synchronous callback and `safeAsync` takes one returning a promise.
 
 ```ts
 import { safe, safeAsync } from '@whaaaley/grab-bag/safe'

@@ -1,7 +1,6 @@
 # grab-bag
 
 A place for small helpers that fit nowhere else and keep getting rewritten from project to project.
-`safe` was the immediate occasion, since it existed as three separate copies that had already drifted apart.
 
 Each helper is its own export, so importing one does not pull in the rest.
 

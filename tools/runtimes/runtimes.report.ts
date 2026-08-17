@@ -25,13 +25,15 @@ export const buildManifest = (dependencies: Record<string, string>, devDependenc
   return `${JSON.stringify(manifest, null, 2)}\n`
 }
 
-// Both runtimes colour their summaries when the output is piped, so the escape
-// sequences sit between the anchors and the counts and have to come out first.
+// Both runtimes colour their summaries when piped, so the codes come out first.
+// The escape comes from its code point so the pattern holds no control character.
+const colourCode = new RegExp(`${String.fromCharCode(27)}\\[[0-9;]*m`, 'g')
+
 const plain = (output: string): string => {
-  return output.replace(/\u001b\[[0-9;]*m/g, '')
+  return output.replace(colourCode, '')
 }
 
-// Node reports a summary as "ℹ pass 21" and "ℹ fail 0" on their own lines.
+// Node reports a summary as "pass 21" and "fail 0" on their own lines.
 const readNodeCount = (output: string, noun: string): number => {
   const found = new RegExp(`^\\s*\\D*${noun} (\\d+)\\s*$`, 'm').exec(plain(output))
 
@@ -65,8 +67,8 @@ export const parseBunSummary = (output: string): { passed: number; failed: numbe
   return { passed: readBunCount(output, 'pass'), failed: readBunCount(output, 'fail') }
 }
 
-// A run with no passing test is a failure even when nothing reported a failure,
-// because the usual cause is a runtime that never found or never loaded the files.
+// A run with no passing test is a failure even when nothing reported a failure.
+// The usual cause is a runtime that never found or never loaded the files.
 export const isFailure = (result: RunResult): boolean => {
   return result.failed > 0 || result.passed === 0
 }

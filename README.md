@@ -17,6 +17,14 @@ Each helper is its own export, so importing one does not pull in the rest.
 deno add jsr:@whaaaley/common
 ```
 
+## Runtimes
+
+Verified on Node 24.19.0, Node 26.7.0, and Bun 1.3.14, with all 21 tests passing under each.
+
+Run `deno task runtimes` to reproduce it.
+The sources are copied to a temporary directory, the JSR dependencies are installed there as npm packages, and the suite runs under each runtime.
+Nothing is written inside the repository, because a `package.json` beside `deno.json` switches Deno to node-modules resolution and breaks `deno check`.
+
 ## safe / safeAsync
 
 `safe` takes a synchronous callback and `safeAsync` takes one returning a promise.

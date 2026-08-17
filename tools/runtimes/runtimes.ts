@@ -28,8 +28,7 @@ const printHelp = (): void => {
 
 const repoRoot = new URL('../../', import.meta.url).pathname
 
-// The tool joins only known-good segments, so a path helper would be the package's
-// single dependency on @std/path and is not worth adding for this.
+// The tool joins only known-good segments, so @std/path is not worth adding here.
 const join = (...segments: string[]): string => segments.join('/').replace(/\/+/g, '/')
 
 const run = async (command: string, args: string[], cwd: string): Promise<{ code: number; output: string }> => {
@@ -97,8 +96,8 @@ const runBun = async (binary: string, directory: string): Promise<RunResult> => 
   return result
 }
 
-// A version manager keeps each version under its own prefix, so a matching one is used directly
-// and the bare binary is accepted only when it already reports the version being asked for.
+// A version manager keeps each version under its own prefix, so a match is used directly.
+// The bare binary is accepted only when it already reports the version asked for.
 const resolveNode = async (node: string, version: string): Promise<string> => {
   if (node === '') return ''
 

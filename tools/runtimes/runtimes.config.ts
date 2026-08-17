@@ -1,13 +1,13 @@
 // What the runtime proof installs, which runtimes it runs, and which tests it runs under them.
 
-// The JSR dependencies this package imports, expressed as the npm aliases npm.jsr.io serves.
+// The JSR dependencies this package imports, as the npm aliases npm.jsr.io serves.
 // Deno reads these from deno.json, but Node and Bun need a package.json to resolve them.
 export const dependencies: Record<string, string> = {
   '@std/assert': 'npm:@jsr/std__assert@^1.0.19',
 }
 
-// Once a package.json exists Deno switches to node-modules resolution and needs these types,
-// which is why the proof installs them even though the runtimes themselves do not read types.
+// Once a package.json exists Deno switches to node-modules resolution and needs these types.
+// The proof installs them even though the runtimes themselves do not read types.
 export const devDependencies: Record<string, string> = {
   '@types/node': '^26.2.0',
 }

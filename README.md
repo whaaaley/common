@@ -17,12 +17,6 @@ Each helper is its own export, so importing one does not pull in the rest.
 deno add jsr:@whaaaley/common
 ```
 
-## Runtimes
-
-Verified on Node 24.19.0, Node 26.7.0, and Bun 1.3.14, with all 21 tests passing under each.
-
-Run `deno task runtimes` to reproduce it.
-
 ## safe / safeAsync
 
 `safe` takes a synchronous callback and `safeAsync` takes one returning a promise.

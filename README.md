@@ -1,4 +1,4 @@
-# grab-bag
+# common
 
 A place for small helpers that fit nowhere else and keep getting rewritten from project to project.
 
@@ -7,7 +7,7 @@ Each helper is its own export, so importing one does not pull in the rest.
 ## Install
 
 ```sh
-deno add jsr:@whaaaley/grab-bag
+deno add jsr:@whaaaley/common
 ```
 
 ## safe / safeAsync
@@ -16,7 +16,7 @@ Runs a callback and returns `{ data, error }` instead of throwing.
 `safe` takes a synchronous callback and `safeAsync` takes one returning a promise.
 
 ```ts
-import { safe, safeAsync } from '@whaaaley/grab-bag/safe'
+import { safe, safeAsync } from '@whaaaley/common/safe'
 
 const { data, error } = safe(() => JSON.parse(input))
 
@@ -34,7 +34,7 @@ const { data: response, error: fetchError } = await safeAsync(() => fetch(url))
 Picks the singular or plural form of a word for a count.
 
 ```ts
-import { pluralize } from '@whaaaley/grab-bag/pluralize'
+import { pluralize } from '@whaaaley/common/pluralize'
 
 pluralize('file', 1) // '1 file'
 pluralize('file', 2) // '2 files'

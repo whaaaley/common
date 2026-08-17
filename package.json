@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@std/assert": "npm:@jsr/std__assert@^1.0.19"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0"
+  }
+}

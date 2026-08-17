@@ -2,6 +2,12 @@
 
 Small helpers that fit nowhere else.
 
+## Install
+
+```sh
+deno add jsr:@whaaaley/common
+```
+
 ## Helpers
 
 | Export | What it does |
@@ -10,12 +16,6 @@ Small helpers that fit nowhere else.
 | [`pluralize`](#pluralize) | picks the singular or plural form of a word for a count |
 
 Each helper is its own export, so importing one does not pull in the rest.
-
-## Install
-
-```sh
-deno add jsr:@whaaaley/common
-```
 
 ## safe / safeAsync
 

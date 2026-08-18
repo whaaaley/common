@@ -54,6 +54,8 @@
     ]
   },
   "imports": {
-    "@std/assert": "jsr:@std/assert@^1.0.19"
+    "@std/assert": "jsr:@std/assert@^1.0.19",
+    "@whaaaley/git-going": "jsr:@whaaaley/git-going@0",
+    "@whaaaley/looks-good": "jsr:@whaaaley/looks-good@0"
   }
 }
